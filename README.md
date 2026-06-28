@@ -1,4 +1,4 @@
-# Fingerprint-Based Blood Group Detection Using CNN
+# Fingerprint-Based-Blood-Group-Detection-Using-CNN
 
 ## Project Overview
 This project uses Convolutional Neural Networks (CNN) to predict blood groups from fingerprint images.
