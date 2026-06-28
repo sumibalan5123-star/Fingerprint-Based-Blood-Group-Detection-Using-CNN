@@ -1,0 +1,9 @@
+<!DOCTYPE html><html>
+<head>
+<title>Prediction Result</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head><body><div class="container"><h1>Prediction Result</h1><img src="{{ url_for('static', filename='uploads/' + image) }}" width="250"><h2>Blood Group: {{ prediction }}</h2>
+<h3>Confidence: {{ confidence }}%</h3><a href="/">Try Another Image</a>
+
+</div></body>
+</html>

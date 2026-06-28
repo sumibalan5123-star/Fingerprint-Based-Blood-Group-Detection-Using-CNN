@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>History - BloodPrint</title>
+
+<style>
+
+/* BACKGROUND */
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),
+url("/static/images/background3.jpg");
+background-size:cover;
+background-attachment:fixed;
+color:white;
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+background:#071829;
+padding:15px;
+text-align:right;
+box-shadow:0 3px 10px rgba(0,0,0,0.6);
+z-index:1000;
+}
+
+.navbar a{
+color:white;
+margin:20px;
+text-decoration:none;
+font-size:16px;
+font-weight:bold;
+}
+
+.navbar a:hover{
+color:#ff4b5c;
+}
+
+/* CONTAINER */
+.container{
+padding-top:100px;
+width:90%;
+margin:auto;
+}
+
+/* TITLE */
+h1{
+text-align:center;
+margin-bottom:30px;
+background:linear-gradient(45deg,#ff00cc,#00ccff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+/* TABLE */
+table{
+width:100%;
+border-collapse:collapse;
+background:rgba(0,0,0,0.7);
+border-radius:10px;
+overflow:hidden;
+}
+
+th, td{
+padding:15px;
+text-align:center;
+}
+
+th{
+background:linear-gradient(45deg,#ff00cc,#00ccff);
+color:white;
+font-size:18px;
+}
+
+td{
+border-bottom:1px solid rgba(255,255,255,0.2);
+}
+
+/* IMAGE */
+img{
+width:80px;
+border-radius:8px;
+}
+
+/* BUTTON */
+button{
+padding:8px 15px;
+border:none;
+border-radius:20px;
+background:linear-gradient(45deg,#ff00cc,#00ccff);
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* EMPTY MESSAGE */
+.empty{
+text-align:center;
+margin-top:50px;
+font-size:20px;
+color:#ccc;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/#upload">Predict</a>
+<a href="/logout">Logout</a>
+</div>
+
+<div class="container">
+
+<h1>Your Prediction History</h1>
+
+{% if data and data|length > 0 %}
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Fingerprint</th>
+<th>Blood Group</th>
+<th>Confidence</th>
+<th>Date</th>
+<th>Report</th>
+</tr>
+
+{% for row in data %}
+
+<tr>
+
+<td>{{ row[0] }}</td>
+
+<td>
+<img src="{{ url_for('static', filename='uploads/' + row[2]) }}">
+</td>
+
+<td><b>{{ row[3] }}</b></td>
+
+<td>{{ row[4] }} %</td>
+
+<td>{{ row[5] }}</td>
+
+<td>
+<a href="/download_report/{{ row[0] }}">
+<button>Download</button>
+</a>
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<div class="empty">
+No history found. Upload a fingerprint to see results here.
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

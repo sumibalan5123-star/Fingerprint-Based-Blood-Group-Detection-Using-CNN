@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>BloodPrint - Fingerprint Blood Group Detection</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+<a href="#home">Home</a>
+<a href="/about">About</a>
+<a href="#upload">Get Started</a>
+
+{% if 'user_id' in session %}
+<a href="/history">History</a>
+<a href="/logout">Logout</a>
+{% else %}
+<a href="/login">Login</a>
+<a href="/signup">Sign Up</a>
+{% endif %}
+
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<h1>Fingerprint Blood Group Detection</h1>
+<p>AI-powered system that predicts human blood group using fingerprint patterns and deep learning technology.</p>
+
+<a href="#upload">
+<button>Get Started</button>
+</a>
+</section>
+
+<!-- UPLOAD SECTION -->
+<section class="section" id="upload">
+
+<div class="upload-box">
+
+<h2>Upload Fingerprint</h2>
+
+<form action="/" method="POST" enctype="multipart/form-data" onsubmit="showLoading()">
+
+<!-- ✅ PATIENT NAME -->
+<input type="text" name="patient_name" placeholder="Enter Patient Name" required>
+
+<br><br>
+
+<input type="file" name="file" id="fingerprintInput" accept="image/*" required onchange="previewFingerprint(event)">
+
+<br><br>
+
+<div class="scanner-container">
+<img id="fingerprintPreview">
+<div class="scanner-line" id="scannerLine"></div>
+</div>
+
+<br>
+
+<button type="submit">Predict Blood Group</button>
+
+</form>
+
+<!-- LOADING -->
+<div id="loader" style="display:none;margin-top:20px;">
+<p id="loadingText">Analyzing fingerprint...</p>
+
+<div style="width:100%;background:#ddd;border-radius:10px;">
+<div id="progressBar" style="width:0%;height:20px;background:#ff4b5c;border-radius:10px;"></div>
+</div>
+</div>
+
+<!-- ✅ RESULT -->
+{% if prediction %}
+
+<div class="result" style="
+margin-top:25px;
+padding:25px;
+border-radius:20px;
+background:linear-gradient(135deg, rgba(255,0,204,0.8), rgba(0,204,255,0.8));
+color:white;
+text-align:center;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+">
+
+<h3 style="font-size:24px;">🧾 Detection Result</h3>
+
+<p style="font-size:20px;"><b>Blood Group:</b> {{prediction}}</p>
+<p style="font-size:18px;"><b>Confidence:</b> {{confidence}} %</p>
+
+{% if last_id %}
+
+<br>
+
+<a href="/download_report/{{ last_id }}">
+<button style="
+background:black;
+padding:12px 25px;
+border:none;
+color:white;
+border-radius:25px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;">
+Download Report
+</button>
+</a>
+
+{% endif %}
+
+</div>
+
+{% endif %}
+
+</div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="section" id="method">
+<div class="card">
+
+<h2>Project Methodology</h2>
+
+<p>This system detects human blood groups from fingerprint images using deep learning models.</p>
+
+<ul>
+<li>Fingerprint image acquisition</li>
+<li>Image preprocessing</li>
+<li>Deep feature extraction using CNN</li>
+<li>Classification into 8 blood groups</li>
+</ul>
+
+</div>
+</section>
+
+<!-- DATASET -->
+<section class="section">
+<div class="card">
+
+<h2>Dataset Information</h2>
+
+<p>Total Images : 5000 – 6000 fingerprint samples</p>
+
+<ul>
+<li>A+</li>
+<li>A-</li>
+<li>B+</li>
+<li>B-</li>
+<li>AB+</li>
+<li>AB-</li>
+<li>O+</li>
+<li>O-</li>
+</ul>
+
+<p>Images resized to 256×256 before training.</p>
+
+</div>
+</section>
+
+<!-- PROJECT DETAILS -->
+<section class="section">
+<div class="card">
+
+<h2>Project Details</h2>
+
+<p><b>Project :</b> Fingerprint Based Blood Group Detection</p>
+<p><b>Developed By :</b> J. Jayasumithra</p>
+<p><b>Department :</b> B.Tech IT</p>
+<p><b>College :</b> IFET College of Engineering</p>
+<p><b>Technology :</b> Python, Flask, Deep Learning, CNN</p>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+<p>© 2026 BloodPrint AI System</p>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

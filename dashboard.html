@@ -1,0 +1,44 @@
+<!DOCTYPE html><html>
+<head>
+<title>Dashboard</title><style>
+
+body{
+font-family:Arial;
+background:#0f2027;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.container{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.card{
+background:#162c44;
+padding:30px;
+border-radius:12px;
+width:250px;
+box-shadow:0 0 10px rgba(0,0,0,0.4);
+}
+
+h1{
+margin-bottom:40px;
+}
+
+</style></head><body><h1>Project Dashboard</h1><div class="container"><div class="card">
+<h2>Model Accuracy</h2>
+<p style="font-size:30px">{{accuracy}}%</p>
+</div><div class="card">
+<h2>Dataset Size</h2>
+<p>{{dataset}}</p>
+</div><div class="card">
+<h2>Classes</h2>
+<p>8 Blood Groups</p>
+</div></div><br><a href="/history" style="color:white;">View Prediction History</a>
+
+</body>
+</html>

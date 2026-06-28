@@ -1,0 +1,35 @@
+<!DOCTYPE html><html>
+<head>
+<title>Model Analysis</title><style>
+
+body{
+font-family:Arial;
+background:#0f2027;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.card{
+background:#162c44;
+padding:30px;
+border-radius:12px;
+width:700px;
+margin:auto;
+}
+
+img{
+width:90%;
+border-radius:10px;
+margin-top:20px;
+}
+
+</style></head><body><div class="card"><h2>Model Analysis</h2><p>
+The fingerprint images are processed using a deep convolutional neural
+network trained on multiple fingerprint samples belonging to different
+blood groups.
+</p><h3>Confusion Matrix</h3><img src="{{ url_for('static', filename='images/confusion_matrix.png') }}"><p>
+The confusion matrix shows the classification performance of the model
+for each blood group class.
+</p><h3>Model Accuracy</h3><p>Overall Accuracy : <b>85%</b></p></div></body>
+</html>

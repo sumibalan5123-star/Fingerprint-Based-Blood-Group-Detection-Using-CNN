@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About - BloodPrint</title><style>
+
+/* GLOBAL */
+
+body{
+margin:0;
+font-family:Segoe UI;
+color:white;
+font-weight:bold;
+
+/* HALF BACKGROUND IMAGES */
+
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url("/static/images/background4.jpg") left center/50% 100% no-repeat,
+
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
+url("/static/images/background5.jpg") right center/50% 100% no-repeat;
+
+background-attachment:fixed;
+scroll-behavior:smooth;
+}
+
+
+/* SIDEBAR */
+
+.sidebar{
+position:fixed;
+top:0;
+left:0;
+width:230px;
+height:100%;
+background:#071829;
+padding-top:30px;
+text-align:center;
+box-shadow:2px 0 10px rgba(0,0,0,0.6);
+}
+
+.sidebar img{
+width:70px;
+margin-bottom:10px;
+}
+
+.sidebar h2{
+color:#ff4b5c;
+font-size:18px;
+margin-bottom:20px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+padding:15px;
+text-decoration:none;
+font-size:17px;
+}
+
+.sidebar a:hover{
+background:#ff4b5c;
+}
+
+
+/* MAIN CONTENT */
+
+.main{
+margin-left:230px;
+padding:40px;
+}
+
+
+/* PROJECT TITLE */
+
+.project-title{
+text-align:center;
+margin-bottom:40px;
+}
+
+.project-title h1{
+font-size:45px;
+background:linear-gradient(45deg,#ff00cc,#00ccff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+
+/* TOP IMAGES */
+
+.top-images{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-bottom:40px;
+}
+
+.top-images img{
+width:220px;
+height:150px;
+border-radius:12px;
+object-fit:cover;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
+
+
+/* SECTIONS */
+
+.section{
+padding:40px;
+border-radius:15px;
+margin-bottom:40px;
+background:rgba(22,44,68,0.9);
+}
+
+
+/* SECTION TITLES */
+
+.section h2{
+font-size:30px;
+margin-bottom:20px;
+background:linear-gradient(45deg,#ff00cc,#00ccff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+
+/* METHODOLOGY LIST */
+
+.section ul{
+line-height:2;
+font-size:18px;
+}
+
+
+/* DATASET IMAGES */
+
+.dataset-images{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.dataset-images img{
+width:160px;
+height:160px;
+border-radius:10px;
+object-fit:cover;
+box-shadow:0 0 12px rgba(0,0,0,0.6);
+}
+
+
+/* CONTACT FORM */
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:6px;
+border:none;
+}
+
+.contact-form button{
+padding:12px 25px;
+background:linear-gradient(45deg,#ff00cc,#00ccff);
+border:none;
+color:white;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:20px;
+background:#071829;
+margin-top:30px;
+}
+
+</style></head><body><!-- SIDEBAR --><div class="sidebar"><img src="https://cdn-icons-png.flaticon.com/512/833/833472.png"><img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png"><h2>Blood Group Detector</h2><a href="{{ url_for('index') }}">Home</a>
+<a href="#methodology">Methodology</a>
+<a href="#dataset">Dataset</a>
+<a href="#contact">Contact</a>
+
+</div><!-- MAIN CONTENT --><div class="main"><div class="project-title">
+<h1>Fingerprint Based Blood Group Detection</h1>
+</div><!-- TOP IMAGES --><div class="top-images"><img src="{{ url_for('static', filename='images/img1.jpg') }}"><img src="{{ url_for('static', filename='images/img2.jpg') }}"><img src="{{ url_for('static', filename='images/img3.jpg') }}"></div><!-- METHODOLOGY --><section class="section" id="methodology"><h2>Project Methodology</h2><ul><li>Fingerprint image acquisition</li><li>Image preprocessing (resizing, noise removal)</li><li>Deep feature extraction using CNN (ResNet architecture)</li><li>Classification into 8 blood groups using trained AI model</li><li>Prediction displayed with confidence score</li></ul></section><!-- DATASET --><section class="section" id="dataset"><h2>Dataset</h2><p>Total Images: 5000 – 6000 fingerprint samples across 8 blood groups</p><div class="dataset-images"><img src="{{ url_for('static', filename='images/fingerprint1.jpg') }}"><img src="{{ url_for('static', filename='images/fingerprint2.jpg') }}"><img src="{{ url_for('static', filename='images/fingerprint3.jpg') }}"><img src="{{ url_for('static', filename='images/fingerprint4.jpg') }}"></div></section><!-- CONTACT --><section class="section" id="contact"><h2>Contact</h2><p><b>Address:</b> IFET College of Engineering, Villupuram, Tamil Nadu</p><p><b>Email:</b> sumibalan5123@gmail.com</p><p><b>Phone:</b> +91 8056852147</p><p><b>Location Map:</b></p><iframe src="https://www.google.com/maps?q=IFET+College+of+Engineering&output=embed"
+width="100%" height="300" style="border:0;"></iframe><h3>Send a Message</h3><form class="contact-form"><input type="text" placeholder="Your Name" required><input type="email" placeholder="Your Email" required><textarea rows="5" placeholder="Your Message"></textarea><button type="submit">Send</button>
+
+</form></section></div><div class="footer">
+© 2026 BloodPrint AI System
+</div></body>
+</html>
